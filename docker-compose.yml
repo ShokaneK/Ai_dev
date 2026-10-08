@@ -23,7 +23,7 @@ services:
       - USE_FAKE_JIRA=${USE_FAKE_JIRA:-true}
       - MCP_TRANSPORT=streamable-http
       - MCP_PORT=8000
-      - WEBHOOK_URL=http://52.55.106.169:5678/
+      - WEBHOOK_URL=http://15.240.230.249:5678/
       - N8N_SECURE_COOKIE=false
     networks:
       - compliance-net
@@ -33,13 +33,13 @@ services:
     ports:
       - "5678:5678"
     environment:
-      - N8N_HOST=${N8N_HOST:-localhost}
+      - N8N_HOST=15.240.230.249
       - N8N_PROTOCOL=${N8N_PROTOCOL:-http}
       # WEBHOOK_URL must be an address Jira can actually reach — localhost
       # only works for testing from the same machine. For a real webhook
       # from Jira, this needs to be a real reachable URL (MIP-hosted domain,
       # or a tunnel like ngrok for local testing).
-      - WEBHOOK_URL=${WEBHOOK_URL:-http://localhost:5678/}
+      - WEBHOOK_URL=${WEBHOOK_URL:-http://15.240.230.249:5678/}
     volumes:
       - n8n_data:/home/node/.n8n
     networks:
